@@ -17,6 +17,7 @@ morgan.token('body', (req) => {
 // Configurar morgan con el formato tiny y agregar el token personalizado
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'));
 app.use(express.json())
+app.use(express.static('dist'))
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 let people = [
